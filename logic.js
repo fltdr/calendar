@@ -18,7 +18,6 @@ var api = (function () {
   }
 
   function decideIfItsAnewDay() {
-    console.log(currentDay);
     // In case it's a new day we'd want to clear the results.
     if (localStorage.getItem("today") != currentDay) {
       localStorage.clear(); // This is a new day, clear the results
@@ -33,7 +32,6 @@ var api = (function () {
       let text;
       let readOnly = false;
       let indexedHour = parseInt(workingHours[i]);
-      console.log(indexedHour);
       tiles += "<div class='row time-block ";
       if (currentHour > indexedHour) {
         tiles += "past";
@@ -56,7 +54,6 @@ var api = (function () {
       tiles += ">";
 
       text = localStorage.getItem(indexedHour);
-      console.log(indexedHour, text);
       if (text && text.length) {
         tiles += text;
       }
@@ -75,7 +72,6 @@ var api = (function () {
       let $this = $(this);
       let hour = $this.parent().find('.hour').text();
       let text = $this.parent().find('.description').val();
-      console.log(hour, text);
       localStorage.setItem(hour, text);
     });
   }
